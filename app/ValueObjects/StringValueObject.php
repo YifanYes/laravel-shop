@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ValueObjects\GenericTypes;
+namespace App\ValueObjects;
 
 use Illuminate\Support\Str;
 use LogicException;

@@ -3,10 +3,6 @@
 namespace App\ValueObjects;
 
 use App\Traits\HasAvailableConstants;
-use App\ValueObjects\GenericTypes\{
-  StringValueObject,
-  StringValueObjectInterface
-};
 use LogicException;
 
 class Currency extends StringValueObject implements StringValueObjectInterface {

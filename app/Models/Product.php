@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasUuid;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class Product extends Model {
@@ -13,4 +14,8 @@ class Product extends Model {
     'description',
     'price',
   ];
+
+  public function categories(): HasMany {
+    return $this->hasMany(Category::class);
+  }
 }

@@ -1,9 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+Route::get('/test', function () {
+  return Category::create(['name' => 'Test']);
+});
 
 Route::get('/', function () {
   return Inertia::render('Welcome', [

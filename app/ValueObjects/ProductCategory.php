@@ -3,7 +3,6 @@
 namespace App\ValueObjects;
 
 use App\Traits\HasAvailableConstants;
-use App\ValueObjects\GenericTypes\{StringValueObject, StringValueObjectInterface};
 use LogicException;
 
 class ProductCategory extends StringValueObject implements StringValueObjectInterface {
