@@ -68,4 +68,9 @@ class ProductService {
     $product->refresh();
     return $product;
   }
+
+  public function deleteProduct(string $productId): void {
+    $product = $this->getProduct($productId);
+    $product->delete();
+  }
 }
