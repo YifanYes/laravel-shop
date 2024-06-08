@@ -12,6 +12,15 @@ class ProductService {
     return Product::with('categories')->paginate($pagination->per_page ?? 20);
   }
 
+  public function getProduct(string $productId): Product {
+    $product = Product::findByUuid($productId);
+    if (!$product) {
+      throw new Exception('Product not found', 404);
+    }
+
+    return $product;
+  }
+
   public function createProduct(ProductRequestDTO $data): Product {
     $product = Product::create([
       'name' => $data->name,

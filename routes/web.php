@@ -30,4 +30,5 @@ Route::middleware('auth')->group(function () {
 Route::group(['prefix' => 'products'], function () {
   Route::get('/', Product\GetProductsList::class);
   Route::post('/', Product\CreateProduct::class);
+  Route::get('/{product_id}', Product\GetProduct::class);
 });
