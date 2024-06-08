@@ -1,14 +1,12 @@
 <?php
 
+use App\Http\Actions\Product;
 use App\Http\Controllers\ProfileController;
-use App\Models\Category;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/test', function () {
-  return Category::create(['name' => 'Test']);
-});
+require_once __DIR__ . '/auth.php';
 
 Route::get('/', function () {
   return Inertia::render('Welcome', [
@@ -29,4 +27,6 @@ Route::middleware('auth')->group(function () {
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+Route::group(['prefix' => 'products'], function () {
+  Route::post('/', Product\CreateProduct::class);
+});

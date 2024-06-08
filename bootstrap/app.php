@@ -15,7 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
         \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
       ]);
 
-      //
+      // Disble CSRF protection for testing purposes
+      $middleware->validateCsrfTokens(except: [
+        '*',
+      ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
       //
