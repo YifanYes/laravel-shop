@@ -19,6 +19,8 @@ class ProductResource extends JsonResource {
       'currency' => $this->currency,
       'description' => $this->description,
       'categories' => $this->categories->pluck('name'),
+      'image_url' => $this->image_url,
+      'cta' => $this->cta_url,
     ];
   }
 }

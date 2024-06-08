@@ -9,6 +9,8 @@ class ProductRequestDTO {
    * @param string $currency
    * @param ?string $description
    * @param ?array $categories
+   * @param ?string $imageUrl
+   * @param ?string $ctaUrl
    */
   public function __construct(
     readonly string $name,
@@ -16,6 +18,8 @@ class ProductRequestDTO {
     readonly string $currency,
     readonly ?string $description = null,
     readonly ?array $categories = null,
+    readonly ?string $imageUrl = null,
+    readonly ?array $ctaUrl = null,
   ) {
   }
 }

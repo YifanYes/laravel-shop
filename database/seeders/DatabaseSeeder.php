@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\{Category, User};
-use App\ValueObjects\ProductCategory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +16,7 @@ class DatabaseSeeder extends Seeder {
       ['password' => 'asdfasdf']
     );
 
-    foreach (ProductCategory::all() as $category) {
+    foreach (['food', 'clothing', 'electronics'] as $category) {
       Category::firstOrCreate(['name' => $category]);
     }
   }

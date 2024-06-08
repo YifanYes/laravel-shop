@@ -17,6 +17,8 @@ return new class () extends Migration {
       $table->mediumText('description')->nullable();
       $table->unsignedInteger('price');
       $table->string('currency')->default(Currency::EUR);
+      $table->string('image_url')->nullable();
+      $table->string('cta_url')->nullable();
       $table->timestamps();
       $table->softDeletes();
     });

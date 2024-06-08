@@ -12,7 +12,9 @@ class ProductService {
       'name' => $data->name,
       'price' => $data->price,
       'currency' => $data->currency,
-      'description' => $data->description
+      'description' => $data->description,
+      'image_url' => $data->imageUrl,
+      'cta_url' => $data->ctaUrl,
     ]);
 
     if ($data->categories) {

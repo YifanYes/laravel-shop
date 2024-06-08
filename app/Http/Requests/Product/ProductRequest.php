@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Product;
 
 use App\DTO\ProductRequestDTO;
-use App\ValueObjects\{Currency, ProductCategory};
+use App\ValueObjects\{Currency};
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -15,7 +15,9 @@ class ProductRequest extends FormRequest {
       'price' => ['required', 'integer', 'gt:0'],
       'currency' => ['required', Rule::in(Currency::all())],
       'categories' => ['nullable', 'array'],
-      'categories.*' => ['string', Rule::in(ProductCategory::all())],
+      'categories.*' => ['string'],
+      'image_url' => ['nullable', 'url'],
+      'cta_url' => ['nullable', 'url'],
     ];
   }
 
@@ -26,7 +28,9 @@ class ProductRequest extends FormRequest {
       $data['price'],
       $data['currency'],
       $data['description'] ?? null,
-      $data['categories'] ?? null
+      $data['categories'] ?? null,
+      $data['image_url'] ?? null,
+      $data['cta_url'] ?? null
     );
   }
 }

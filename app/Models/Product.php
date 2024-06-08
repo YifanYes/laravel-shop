@@ -13,6 +13,9 @@ class Product extends Model {
     'name',
     'description',
     'price',
+    'currency',
+    'image_url',
+    'cta_url'
   ];
 
   public function categories(): BelongsToMany {
