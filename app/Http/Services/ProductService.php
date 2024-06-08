@@ -5,8 +5,13 @@ namespace App\Http\Services;
 use App\DTO\ProductRequestDTO;
 use App\Models\{Category, Product};
 use Exception;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductService {
+  public function getProductsList(object $pagination): LengthAwarePaginator {
+    return Product::with('categories')->paginate($pagination->per_page ?? 20);
+  }
+
   public function createProduct(ProductRequestDTO $data): Product {
     $product = Product::create([
       'name' => $data->name,
